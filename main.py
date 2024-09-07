@@ -12,7 +12,7 @@ DEFAULT_DUPLICATES = False
 
 def sort_list(items, ascending):
     if not isinstance(items, list):
-        raise RuntimeError(f"No puede ordenar {type(items)}")
+        raise RuntimeError(f"It can't be sorted {type(items)}")
 
     return sorted(items, reverse=(not ascending))
 
@@ -30,12 +30,12 @@ if __name__ == "__main__":
         remove_duplicates = sys.argv[2].lower() == "yes"
         ascSort = sys.argv[3].lower() != "desc"
     else:
-        print("Se debe indicar el fichero como primer argumento")
-        print("El segundo argumento indica si se quieren eliminar duplicados")
-        print("El tercer argumento indica si se quiere ordenar de forma ascendente o descendente (asc | desc)")
+        print("First argument is required (textfile)")
+        print("Second argument is required (delete dups or not)")
+        print("Third argument is required (asc | desc)")
         sys.exit(1)
 
-    print(f"Se leerán las palabras del fichero {filename}")
+    print(f"The file {filename}'s words will be readed")
     file_path = os.path.join(".", filename)
     if os.path.isfile(file_path):
         word_list = []
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             for line in file:
                 word_list.append(line.strip())
     else:
-        print(f"El fichero {filename} no existe")
+        print(f"Not found {filename}")
         word_list = ["ravenclaw", "gryffindor", "slytherin", "hufflepuff", "hufflepuff"]
 
     if remove_duplicates:
